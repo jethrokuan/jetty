@@ -12,10 +12,10 @@ function prompt_git -d "Display the current git state"
     set -l BG PROMPT
     set -l dirty (command git status --porcelain --ignore-submodules=dirty 2> /dev/null)
     if [ "$dirty" = "" ]
-      set BG green
+      set BG GREEN
       set PROMPT "$branch"
     else
-      set BG yellow
+      set BG YELLOW
       set dirty ''
 
       # Check if there's any commit in the repo
@@ -25,7 +25,7 @@ function prompt_git -d "Display the current git state"
       set -l target
       if [ $empty = 1 ]
         # The repo is empty
-        set target '4b825dc642cb6eb9a060e54bf8d69288fbee4904'
+        set target ''
       else
         # The repo is not emtpy
         set target 'HEAD'
@@ -48,6 +48,6 @@ function prompt_git -d "Display the current git state"
         set PROMPT "$branch $dirty"
       end
     end
-    segment $PROMPT $BG black
+    segment $PROMPT black $BG
   end
 end
