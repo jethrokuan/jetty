@@ -1,4 +1,4 @@
-function segment_git -d "Git Status"
+function __print_git -d "Git Status"
   set branch_name
   set normal (set_color normal)
   set dirty (set_color F38630)

@@ -1,20 +1,15 @@
-function fish_prompt -d "Write out the prompt"
-  if not set -q __fish_prompt_hostname
-    set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
-  end
+function fish_prompt
+  set -l cblue (set_color 69D2E7)
+  set -l cnormal (set_color normal)
+  set -l pwd $cblue(prompt_pwd)$cnormal
+  set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
+  set -g __fish_prompt_char "❯"
 
-  if not set -q __fish_prompt_userhost
-    set -g __fish_prompt_userhost
-    end
+  # Override default ls to use colour
+  alias ls "ls --color"
 
-    if not set -q __fish_prompt_char
-      set -g __fish_prompt_char "❯"
-    end
-
-    echo -n -s \n \
-    "$__fish_prompt_cwd"\
-    (prompt_pwd)\
-    "$__fish_prompt_normal "\
-    (type -q git; and segment_git)
-    printf "\n%s " "$__fish_prompt_char"
+  echo -n -s \n\
+  "$pwd "\
+  (type -q git; and __print_git)
+  printf "\n%s " "$__fish_prompt_char"
 end
