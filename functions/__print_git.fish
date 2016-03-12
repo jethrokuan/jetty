@@ -8,17 +8,16 @@ function __print_git -d "Git Status"
     set -l repo_status
     set -l branch_color
 
+    if git_is_dirty
+      set branch_color $dirty
+    else
+      set branch_color $clean
+    end
+    
     if git_is_touched
-      if git_is_dirty
-        set branch_color $dirty
-      else
-        set branch_color $clean
-      end 
-      
       if git_is_staged
         set repo_status "+"
       end
-
 
     else if git_is_empty
       set repo_status "●"
