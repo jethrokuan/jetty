@@ -12,8 +12,9 @@ function fish_prompt
   if type -q git
     set branch_name
     set normal (set_color normal)
-    set dirty (set_color F38630)
-    set clean (set_color 7AB317)
+    set dirty (set_color black -b F38630)
+    set clean (set_color black -b 7AB317)
+    set detached (set_color black -b FF0000)
     if set branch_name (git_branch_name)
       set -l gitporcelain (git_porcelain)
       set -l gitdistance (git_distance)
@@ -40,12 +41,12 @@ function fish_prompt
         set repo_status ".."
       end
 
-      set git_output "$branch_color$branch_name$repo_status$gitdistance$normal $gitporcelain"
+      set git_output "$branch_color $branch_name$repo_status$gitdistance $normal $gitporcelain"
+    end
   end
-end
 
-echo -n -s \n\
-"$pwd "\
-"$git_output"
-printf "\n%s " "$__fish_prompt_char"
+  echo -n -s \n\
+  "$pwd "\
+  "$git_output"
+  printf "\n%s " "$__fish_prompt_char"
 end
