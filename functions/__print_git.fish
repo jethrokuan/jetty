@@ -5,6 +5,7 @@ function __print_git -d "Git Status"
   set clean (set_color 7AB317)
   if set branch_name (git_branch_name)
     set -l gitporcelain (git_porcelain)
+    set -l gitdistance (git_distance)
     set -l repo_status
     set -l branch_color
 
@@ -26,6 +27,6 @@ function __print_git -d "Git Status"
       set repo_status ".."
     end
 
-    echo -n -s "$branch_color$branch_name$repo_status $normal $gitporcelain"
+    echo -n -s "$branch_color$branch_name$repo_status ($gitdistance) $normal $gitporcelain"
   end
 end
