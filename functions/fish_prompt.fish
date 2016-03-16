@@ -10,7 +10,6 @@ function fish_prompt
   alias ls "ls --color"
 
   if type -q git
-    set branch_name
     set normal (set_color normal)
     set dirty (set_color black -b F38630)
     set clean (set_color black -b 7AB317)
@@ -22,12 +21,12 @@ function fish_prompt
         set gitdistance "($gitdistance)"
       end
       set -l repo_status
-      set -l branch_color
+      set -l branch_color ""
 
       if git_is_dirty
-        set branch_color $dirty
+        set branch_color "$dirty"
       else
-        set branch_color $clean
+        set branch_color "$clean"
       end
       
       if git_is_touched
