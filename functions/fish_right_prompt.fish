@@ -1,6 +1,6 @@
 function fish_right_prompt
-  echo -n -s " "(date +%r) " "
   set -l status_copy $status
+  echo -n -s " "(date +%r) " "
 
   if test "$CMD_DURATION" -gt 20
     set -l duration (echo $CMD_DURATION | humanize_time)
