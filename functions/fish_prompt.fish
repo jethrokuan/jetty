@@ -5,14 +5,8 @@ function fish_prompt
   set -l git_output
   set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
   set -g __fish_prompt_char "❯"
-  set -l platform (uname)
 
-  # Override default ls to use colour
-  if test "Linux" = $platform
-    alias ls "ls --color=auto"
-  else if test "Darwin" = $platform
-    alias ls "ls -G" 
-  end 
+  alias ls "ls -ahl --color=auto"
 
   if type -q git
     set normal (set_color normal)
