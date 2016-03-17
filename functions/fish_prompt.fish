@@ -7,7 +7,7 @@ function fish_prompt
   set -g __fish_prompt_char "❯"
 
   # Override default ls to use colour
-  alias ls "ls --color"
+  alias ls "ls --color=auto"
 
   if type -q git
     set normal (set_color normal)
