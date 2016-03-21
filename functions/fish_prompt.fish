@@ -2,11 +2,14 @@ function fish_prompt
   set -l cblue (set_color 69D2E7)
   set -l cnormal (set_color normal)
   set -l pwd $cblue(prompt_pwd)$cnormal
+  set -l OS (uname)
   set -l git_output
   set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
   set -g __fish_prompt_char "❯"
 
-  alias ls "ls -ahl --color=auto"
+  if test $OS = "Linuxg"
+    alias ls "ls -ahl --color=auto"
+  end
 
   if type -q git
     set normal (set_color normal)
