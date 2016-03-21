@@ -9,8 +9,8 @@ function fish_prompt
 
   if test $OS = "Linux"
     alias ls "ls -ahl --color=auto"
-  else
-    functions -e ls
+  else if test $OS = "Darwin"
+    alias ls "ls -G"
   end
 
   if type -q git
