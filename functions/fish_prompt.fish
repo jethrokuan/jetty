@@ -7,8 +7,10 @@ function fish_prompt
   set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
   set -g __fish_prompt_char "❯"
 
-  if test $OS = "Linuxg"
+  if test $OS = "Linux"
     alias ls "ls -ahl --color=auto"
+  else
+    functions -e ls
   end
 
   if type -q git
