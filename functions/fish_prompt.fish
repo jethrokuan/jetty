@@ -33,14 +33,20 @@ function fish_prompt
         set branch_color "$clean"
       end
       
-      if git_is_touched
-        if git_is_staged
-          set repo_status "+"
+      
+      if git_is_staged
+        if git_is_dirty
+          set git_status "± "
+        else
+          set git_status "+ "
         end
-      else if git_is_empty
-        set repo_status "●"
+      end
 
-      else if git_is_stashed
+      if git_is_empty
+        set repo_status "●"
+      end
+      
+      if git_is_stashed
         set repo_status ".."
       end
 
