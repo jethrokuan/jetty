@@ -3,7 +3,7 @@ function fish_right_prompt
   echo -n -s " "(date +%r) " "
 
   if test "$CMD_DURATION" -gt 20
-    set -l duration (echo $CMD_DURATION | humanize_time)
+    set -l duration (echo $CMD_DURATION | humanize_duration)
     set -l duration_color 777
 
     if test "$CMD_DURATION" -gt 2000
