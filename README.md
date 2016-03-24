@@ -12,4 +12,4 @@ fisher install jethrokuan/jetty
 ```
 
 [Fisherman]: https://github.com/fisherman/fisherman
-[jetty]: http://i.imgur.com/p0yylzA.png
+[jetty]: /screenshot/march2016.png

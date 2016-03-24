@@ -7,7 +7,7 @@ function set_color_custom
   set -U fish_color_error                 FF6B6B
   set -U fish_color_escape                C7F464
   set -U fish_color_operator              C7F464
-  set -U fish_color_quote                 FFF
+  set -U fish_color_quote                 FBB829
   set -U fish_color_autosuggestion        626262
   set -U fish_color_valid_path            --underline
   set -U fish_color_cwd                   C7F464
