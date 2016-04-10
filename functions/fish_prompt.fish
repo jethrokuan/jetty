@@ -8,7 +8,7 @@ function fish_prompt
   set -g __fish_prompt_char "❯"
 
   if test $OS = "Linux"
-    alias ls "ls -ahl --color=auto"
+    alias ls "ls --color=auto"
   else if test $OS = "Darwin"
     alias ls "ls -G"
   end
