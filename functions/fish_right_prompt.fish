@@ -1,9 +1,20 @@
 function fish_right_prompt
   set -l status_copy $status
-  echo -n -s " "(date +%r) " "
+  set -l right_prompt ""
 
-  if test "$CMD_DURATION" -gt 20
-    set -l duration (echo $CMD_DURATION | humanize_time)
+  #Check if ruby
+  if git_is_repo
+    set -l path (git rev-parse --show-toplevel)
+    set -l git_repository_gemfile_path "$path/Gemfile"
+
+    if test -e $git_repository_gemfile_path
+      set -l rubyv (command ruby -v | awk '{print $2}' | cut -d'p' -f1)
+      set right_prompt $right_prompt (set_color --bold red) '◃▸' (set_color --bold white) " ruby $rubyv " (set_color normal) 
+    end
+  end
+
+  if test "$CMD_DURATION" -gt 500
+    set -l duration (echo $CMD_DURATION | humanize_duration)
     set -l duration_color 777
 
     if test "$CMD_DURATION" -gt 2000
@@ -11,11 +22,18 @@ function fish_right_prompt
     end
     
     if test ! -z "$duration"
-      printf (set_color $duration_color)"$duration "(set_color normal)
+      set right_prompt $right_prompt (set_color $duration_color) "$duration " (set_color normal)
     end
 
     if test $status_copy -ne 0
-      printf (set_color f00)"→ $status_copy "(set_color normal)
+      set right_prompt $right_prompt (set_color f00)"→ $status_copy "(set_color normal)
     end
   end
+
+  if test -z "$right_prompt"
+    set -l d (date +%r)
+    set right_prompt $right_prompt "$d "
+  end
+
+  echo -n -s $right_prompt
 end

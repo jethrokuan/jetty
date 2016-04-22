@@ -1,4 +1,4 @@
 git_util
-humanize_time
-jethrokuan/git_porcelain
+humanize_duration
+git_porcelain
 jethrokuan/git-distance
