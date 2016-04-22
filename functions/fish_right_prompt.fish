@@ -2,7 +2,7 @@ function fish_right_prompt
   set -l status_copy $status
   set -l right_prompt ""
 
-  #Check if ruby
+  #Check if has Gemfile
   if git_is_repo
     set -l path (git rev-parse --show-toplevel)
     set -l git_repository_gemfile_path "$path/Gemfile"
