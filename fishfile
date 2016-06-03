@@ -1,4 +1,4 @@
-git_util
-humanize_duration
-git_porcelain
-jethrokuan/git-distance
+fisherman/git_util
+fisherman/humanize_duration
+fisherman/git_porcelain
+jethrokuan/git_distance
