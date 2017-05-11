@@ -54,8 +54,13 @@ function fish_prompt
     end
   end
 
+  set -l ve ""
+  if set -q VIRTUAL_ENV
+    set ve (printf "(%s)" (basename $VIRTUAL_ENV))
+end
+
   echo -n -s \n\
-  "$pwd "\
+  "$ve $pwd "\
   "$git_output"
   printf "\n%s " "$__fish_prompt_char"
 end
