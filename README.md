@@ -1,7 +1,7 @@
 [![Slack Room][slack-badge]][slack-link]
 
 # Jetty
-A git-aware, multiline fish prompt. Includes git-porcelain.
+A git-aware, multiline fish prompt. Includes git-porcelain. Requires `neofetch`.
 
 ![jetty]
 
