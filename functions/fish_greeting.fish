@@ -1,3 +1,2 @@
-function fish_greeting
-  neofetch
+function fish_greeting 
 end
