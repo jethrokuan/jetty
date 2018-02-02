@@ -57,7 +57,7 @@ function fish_prompt
   set -l ve ""
   if set -q VIRTUAL_ENV
     set ve (printf "(%s)" (basename $VIRTUAL_ENV))
-end
+  end
 
   echo -n -s \n\
   "$ve $pwd "\
